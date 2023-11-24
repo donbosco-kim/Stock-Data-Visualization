@@ -1,0 +1,9 @@
+div.content {
+    width:500px;
+    height: 200px;
+    margin:auto;
+    border-style: groove;
+  }
+  h2 {
+    text-align: center;
+  }

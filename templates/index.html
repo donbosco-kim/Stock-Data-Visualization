@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stock-Data</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
 </head>
 
@@ -15,7 +15,7 @@
         <form method="post">
             <label for="symbols">Choose Symbol:</label>
             <select name="symbols" id="symbols">
-                <option value=""></option>
+                <option value="">Select a Symbol</option>
                 {% for symbol in stock_symbols %}
                 <option value="{{ symbol }}">{{ symbol }}</option>
                 {% endfor %}
@@ -23,23 +23,25 @@
             <br>
             <label for="charts">Choose Chart Type:</label>
             <select name="charts" id="charts">
-                <option value=""></option>
+                <option value="">Select a Symbol</option>
+                {% for chart_type in chart_types %}
+                <option value="{{ chart_type }}">{{ chart_type }}</option>
+                {% endfor %}
             </select>
             <br>
             <label for="timeseries">Choose Time Series:</label>
             <select name="timeseries" id="timeseries">
-                <option value=""></option>
+                <option value="">Select a Time Series</option>
+                {% for time_serie in time_series %}
+                <option value="{{ time_serie }}">{{ time_serie }}</option>
+                {% endfor %}
             </select>
             <br>
             <label for="startdate">Start Date:</label>
-            <select name="startdate" id="startdate">
-                <option value=""></option>
-            </select>
+            <input type="date" id="startdate" name="startdate">
             <br>
             <label for="enddate">End Date:</label>
-            <select name="enddate" id="enddate">
-                <option value=""></option>
-            </select>
+            <input type="date" id="enddate" name="enddate">
             <br>
             <button type="submit">Submit</button>
         </form>

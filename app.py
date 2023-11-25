@@ -15,10 +15,25 @@ def load_symbols_from_csv():
 
 @app.route('/')
 def index():
-    #Get stock symbols from CSV
+    #get stock symbols from CSV
     stock_symbols = load_symbols_from_csv()
 
-    return render_template('index.html', stock_symbols=stock_symbols)
+    #get chart types
+    chart_types = get_chart_types()
+
+    #get time series
+    time_series = get_time_series()
+
+    return render_template('index.html', stock_symbols=stock_symbols, chart_types=chart_types, time_series=time_series)
+
+def get_chart_types():
+    chart_types = ['1.Line', '2.Bar']
+    return chart_types
+
+def get_time_series():
+    time_series = ['1.Intraday', '2.Daily', '3.Weekly', '4.Monthly']
+    return time_series
+
 
 if __name__ == '__main__':
     app.run(debug=True)

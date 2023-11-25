@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock-Data</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="content">
+        <h2>Stock Data Visualizer</h2>
+        <form method="post">
+            <label for="symbols">Choose Symbol:</label>
+            <select name="symbols" id="symbols">
+                <option value=""></option>
+                {% for symbol in stock_symbols %}
+                <option value="{{ symbol }}">{{ symbol }}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <label for="charts">Choose Chart Type:</label>
+            <select name="charts" id="charts">
+                <option value=""></option>
+            </select>
+            <br>
+            <label for="timeseries">Choose Time Series:</label>
+            <select name="timeseries" id="timeseries">
+                <option value=""></option>
+            </select>
+            <br>
+            <label for="startdate">Start Date:</label>
+            <select name="startdate" id="startdate">
+                <option value=""></option>
+            </select>
+            <br>
+            <label for="enddate">End Date:</label>
+            <select name="enddate" id="enddate">
+                <option value=""></option>
+            </select>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>

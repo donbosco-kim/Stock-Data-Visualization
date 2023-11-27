@@ -42,7 +42,7 @@ def index():
 
             #Handle the case when the selected time series is not found
             if selected_time_series not in time_series_keys:
-                return "Invalid time series selected."
+                return "Invalid time series selected." #I got this printed because I ran out of api calls per day
 
             time_series = time_series_keys[selected_time_series]
             

@@ -10,11 +10,12 @@
 </head>
 
 <body>
+
     <div class="content">
         <h2>Stock Data Visualizer</h2>
         <form method="post">
             <label for="symbols">Choose Symbol:</label>
-            <select name="symbols" id="symbols">
+            <select name="symbols" id="symbols" required>
                 <option value="">Select a Symbol</option>
                 {% for symbol in stock_symbols %}
                 <option value="{{ symbol }}">{{ symbol }}</option>
@@ -22,30 +23,40 @@
             </select>
             <br>
             <label for="charts">Choose Chart Type:</label>
-            <select name="charts" id="charts">
-                <option value="">Select a Symbol</option>
+            <select name="charts" id="charts" required>
+                <option value="">Select a Chart Type</option>
                 {% for chart_type in chart_types %}
                 <option value="{{ chart_type }}">{{ chart_type }}</option>
                 {% endfor %}
             </select>
             <br>
             <label for="timeseries">Choose Time Series:</label>
-            <select name="timeseries" id="timeseries">
+            <select name="timeseries" id="timeseries" required>
                 <option value="">Select a Time Series</option>
-                {% for time_serie in time_series %}
-                <option value="{{ time_serie }}">{{ time_serie }}</option>
+                {% for time_series in time_series_keys %}
+                <option value="{{ time_series_keys[time_series] }}">{{ time_series }}</option>
                 {% endfor %}
             </select>
             <br>
             <label for="startdate">Start Date:</label>
-            <input type="date" id="startdate" name="startdate">
+            <input type="date" id="startdate" name="startdate" required>
             <br>
             <label for="enddate">End Date:</label>
-            <input type="date" id="enddate" name="enddate">
+            <input type="date" id="enddate" name="enddate" required>
             <br>
             <button type="submit">Submit</button>
         </form>
     </div>
+    <div>
+        {{ chart_content|safe }}
+    </div>
 </body>
+<!-- <div>
+        {% for message in get_flashed_messages() %}
+        <div class="alert">{{ message }}</div>
+        {% endfor %}
+
+        {% block content %} {% endblock %}
+    </div> -->
 
 </html>

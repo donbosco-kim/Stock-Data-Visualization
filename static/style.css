@@ -7,3 +7,12 @@ div.content {
   h2 {
     text-align: center;
   }
+  .alert {
+    padding: 20px;
+    margin: 5px;
+    color: #970020;
+    background-color: #ffd5de;
+}
+div.chart-section {
+  margin: auto;
+}

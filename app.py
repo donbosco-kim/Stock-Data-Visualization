@@ -37,12 +37,13 @@ def index():
             flash('End date cannot be earlier than start date.')
         else:
             time_series_keys = get_time_series()
+            #for testing
             #print("Selected time series:", selected_time_series)
             #print("Available time series keys:", time_series_keys)
 
             #Handle the case when the selected time series is not found
             if selected_time_series not in time_series_keys:
-                return "Invalid time series selected." #I got this printed because I ran out of api calls per day
+                return "Invalid time series selected." #I got this printed when submit because I ran out of api calls per day
 
             time_series = time_series_keys[selected_time_series]
             
@@ -88,7 +89,7 @@ def retrieve_data(function: str, symbol: str, api_key: str, start_date: str, end
   if start_date and end_date:
         url += f'&startDate={start_date}&endDate={end_date}'
 
-  print("API URL:", url)  #Add this line to print the API URL
+  #print("API URL:", url)  #Add this line to print the API URL for testing
 
   response = requests.get(url)
   if response.status_code == 200:

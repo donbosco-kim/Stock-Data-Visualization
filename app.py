@@ -145,4 +145,5 @@ def create_bar_chart(symbol, timeframe, dates, open_prices, high_prices, low_pri
 
 if __name__ == '__main__':
     app.run(debug=True)
+    #app.run(host="0.0.0.0")
 

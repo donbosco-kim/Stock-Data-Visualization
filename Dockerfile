@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 #Upgrade pip
-RUN pip Install --upgrade pip
+RUN pip install --upgrade pip
 
 #Install any needed packages
 RUN pip install --no-cache-dir -r requirements.txt
